@@ -13,11 +13,14 @@
 
 #character{
 
-    width: 20px;
+    width: 80px;
     height: 50px;
-    background-color: red;
+    /* background-color: red; */
     position: relative;
     top:150px;
+    background-image: url(./png/run1.png);
+    background-size: cover;
+    background-position: center;
    
 
 }

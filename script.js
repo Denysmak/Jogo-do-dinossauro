@@ -1,15 +1,48 @@
 let character = document.getElementById("character");
 let block = document.getElementById("block");
+let i = 1;
+let stopFunction = false;
+    function walking(){
+       
+        setInterval(() => {
+
+            character.style.backgroundImage = `url(./png/run${i}.png)`
+            if (i < 8) {
+
+                i++
+
+            }
+            else if (i = 8) { i = 1 }
+
+
+        }, 80)
+    }
+   
+ 
+  
+    
 
     function jump(){
+        
         if(character.classList != "animate"){
-       character.classList.add("animate"); 
+            stopFunction = true
+           character.classList.add("animate"); 
         }
        setTimeout(() => {
+           
+           character.classList.remove("animate")
+           character.style.backgroundImage = `url(./png/jump${i}.png)`
+           if (i < 12) {
 
-       character.classList.remove("animate")
+               i++
+
+           }
+           else if (i = 12) { i = 1 }
+       
 
        }, 500)
+
+    
     }
 
 
@@ -19,11 +52,20 @@ let block = document.getElementById("block");
 
         var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
-        if(blockLeft<20 && blockLeft > 0 && characterTop>=130){
-            block.style.animation = "none";
-            block.style.display = "none"
-            alert("You lose")
+        // if(blockLeft<20 && blockLeft > 0 && characterTop>=130){
+        //     block.style.animation = "none";
+        //     block.style.display = "none"
+        //     alert("You lose")
 
-        }
+        // }
 
     },10)
+//   if(character.style.top === "150px"){
+
+//     walking()
+
+//   }
+
+
+    walking();
+
