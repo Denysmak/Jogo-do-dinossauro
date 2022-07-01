@@ -19,6 +19,24 @@ let stopFunction = false;
     }
 
 
+
+let rocks = ["a", "b", "c", "d", "e", "f"];
+let valorRocks;
+function rock(){
+    valorRocks = rocks[Math.floor(Math.random() * 6)]
+
+
+}
+
+    setInterval(() => {
+
+    rock()
+
+    }, 1000);
+
+
+
+
 function countingBack() {
     let i = 16;
 
@@ -28,9 +46,13 @@ function countingBack() {
         if (i > 0) {
             i--
         }
-        else if (i = 1) { i = 15 }
+        else if (i = 1) { i = 15}
+    setInterval(() => {
 
-       block.style.backgroundImage = `url(./small/a${i}.png)`
+        block.style.backgroundImage = `url(./small/${valorRocks + i}.png)`
+
+    },1000)
+       
     }, 100)
 
 
@@ -40,38 +62,7 @@ function countingBack() {
 countingBack()
 
    
- 
-  
-    
-// document.body.onkeyup = function (e) {
-//     if (e.key == " " ||
-//         e.code == "Space" ||
-//         e.keyCode == 32
-//     ) {
-//         function jump() {
 
-//             if (character.classList != "animate") {
-//                 stopFunction = true
-//                 character.classList.add("animate");
-//             }
-//             setTimeout(() => {
-
-//                 character.classList.remove("animate")
-//                 character.style.backgroundImage = `url(./png/jump${i}.png)`
-//                 if (i < 12) {
-
-//                     i++
-
-//                 }
-//                 else if (i = 12) { i = 1 }
-
-
-//             }, 500)
-
-
-//         }
-//     }
-// }
 
 document.addEventListener('keyup', event => {
     if (event.code === 'Space') {
@@ -102,21 +93,19 @@ function jump() {
 }
 
 
-
-
     let checkDead = setInterval(() => {
 
         var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
 
         var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
-        if(blockLeft<20 && blockLeft > 0 && characterTop>=130){
-            // block.style.animation = "none";
-            // block.style.display = "none"
-            alert("You lose");
+        // if(blockLeft<20 && blockLeft > 0 && characterTop>=130){
+        //     // block.style.animation = "none";
+        //     // block.style.display = "none"
+        //     alert("You lose");
 
 
-        }
+        // }
 
     },10)
 //   if(character.style.top === "150px"){
