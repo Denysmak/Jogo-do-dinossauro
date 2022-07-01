@@ -43,29 +43,65 @@ countingBack()
  
   
     
+// document.body.onkeyup = function (e) {
+//     if (e.key == " " ||
+//         e.code == "Space" ||
+//         e.keyCode == 32
+//     ) {
+//         function jump() {
 
-    function jump(){
-        
-        if(character.classList != "animate"){
-            stopFunction = true
-           character.classList.add("animate"); 
-        }
-       setTimeout(() => {
-           
-           character.classList.remove("animate")
-           character.style.backgroundImage = `url(./png/jump${i}.png)`
-           if (i < 12) {
+//             if (character.classList != "animate") {
+//                 stopFunction = true
+//                 character.classList.add("animate");
+//             }
+//             setTimeout(() => {
 
-               i++
+//                 character.classList.remove("animate")
+//                 character.style.backgroundImage = `url(./png/jump${i}.png)`
+//                 if (i < 12) {
 
-           }
-           else if (i = 12) { i = 1 }
-       
+//                     i++
 
-       }, 500)
+//                 }
+//                 else if (i = 12) { i = 1 }
 
-    
+
+//             }, 500)
+
+
+//         }
+//     }
+// }
+
+document.addEventListener('keyup', event => {
+    if (event.code === 'Space') {
+        jump();
     }
+})
+function jump() {
+
+    if (character.classList != "animate") {
+        stopFunction = true
+        character.classList.add("animate");
+    }
+    setTimeout(() => {
+
+        character.classList.remove("animate")
+        character.style.backgroundImage = `url(./png/jump${i}.png)`
+        if (i < 12) {
+
+            i++
+
+        }
+        else if (i = 12) { i = 1 }
+
+
+    }, 500)
+
+
+}
+
+
 
 
     let checkDead = setInterval(() => {
@@ -78,7 +114,7 @@ countingBack()
             block.style.animation = "none";
             block.style.display = "none"
             alert("You lose");
-            
+
 
         }
 
