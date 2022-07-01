@@ -17,6 +17,28 @@ let stopFunction = false;
 
         }, 80)
     }
+
+
+function countingBack() {
+    let i = 16;
+
+
+    setInterval(() => {
+
+        if (i > 0) {
+            i--
+        }
+        else if (i = 1) { i = 15 }
+
+       block.style.backgroundImage = `url(./small/a${i}.png)`
+    }, 100)
+
+
+
+}
+
+countingBack()
+
    
  
   
@@ -52,12 +74,13 @@ let stopFunction = false;
 
         var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
-        // if(blockLeft<20 && blockLeft > 0 && characterTop>=130){
-        //     block.style.animation = "none";
-        //     block.style.display = "none"
-        //     alert("You lose")
+        if(blockLeft<20 && blockLeft > 0 && characterTop>=130){
+            block.style.animation = "none";
+            block.style.display = "none"
+            alert("You lose");
+            
 
-        // }
+        }
 
     },10)
 //   if(character.style.top === "150px"){
