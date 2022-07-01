@@ -2,6 +2,8 @@ let character = document.getElementById("character");
 let block = document.getElementById("block");
 let i = 1;
 let stopFunction = false;
+let game = document.getElementById("game");
+console.log(game)
     function walking(){
        
         setInterval(() => {
@@ -17,6 +19,25 @@ let stopFunction = false;
 
         }, 80)
     }
+
+function changeBackground() {
+let x = 1;
+    setInterval(() => {
+        console.log(x)
+        game.style.backgroundImage = `url(./backgrounds/back${x}.png)`
+        if (x < 6) {
+
+            x++
+
+        }
+        else if (x = 6) { x = 1 }
+
+
+    }, 6000)
+}
+
+changeBackground()
+
 
 
 
