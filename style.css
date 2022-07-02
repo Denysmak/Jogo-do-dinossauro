@@ -8,10 +8,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100vh;
+position: relative;
 }
 
 #game{
-
+    position: relative;
     width: 800px;
     height: 400px;
     border: 1px solid black;
@@ -31,7 +32,23 @@ height: 100vh;
     background-image: url(./png/run1.png);
     background-size: cover;
     background-position: center;
-   
+}
+.fullScreen{
+position: absolute;
+left: 775px;
+top: 5px;
+}
+.fullScreen:hover{
+    width: 20px;
+}
+.sound{
+    position: absolute;
+    left: 750px;
+    top: 5px;
+}
+.sound:hover{
+
+    width: 20px;
 
 }
 .animate{

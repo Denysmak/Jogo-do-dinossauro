@@ -3,7 +3,10 @@ let block = document.getElementById("block");
 let i = 1;
 let stopFunction = false;
 let game = document.getElementById("game");
-console.log(game)
+let youLose = new Audio(""); 
+
+
+
     function walking(){
        
         setInterval(() => {
@@ -72,7 +75,7 @@ function countingBack() {
 
         block.style.backgroundImage = `url(./small/${valorRocks + i}.png)`
 
-    },1000)
+    },1200)
        
     }, 100)
 
