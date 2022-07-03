@@ -9,6 +9,7 @@ justify-content: center;
 align-items: center;
 height: 100vh;
 position: relative;
+font-family: 'Anton', sans-serif;
 }
 
 #game{
@@ -21,6 +22,39 @@ position: relative;
     overflow: hidden;
    
 }
+.lose{
+
+position: absolute;
+height:60%;
+width:50%;
+background-color: black;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+display: none;
+flex-direction: column;
+align-items: center;
+
+}
+.lose h1{
+
+color: red;
+font-size: 3rem;
+margin-top: 10%;
+}
+#tentarDeNovo{
+    position: absolute;
+    top: 60%;
+    padding: 15px 25px;
+    font-family: 'Anton', sans-serif;
+    color: white;
+    background-color: red;
+}
+#tentarDeNovo:hover{
+
+    padding: 17px 27px;
+    font-size: 1rem;
+}
 
 #character{
 
@@ -29,7 +63,7 @@ position: relative;
     /* background-color: red; */
     position: relative;
     top:320px;
-    background-image: url(./png/run1.png);
+    /* background-image: url(./png/run1.png); */
     background-size: cover;
     background-position: center;
 }
@@ -64,12 +98,17 @@ top: 5px;
     background-size: cover;
     position: relative;
     top: 260px;
-    left: 480px;
+    left: 750px;
+    
+    
+}
+.blockAnimate{
+
     animation: block 1s infinite linear;
+
 }
 
 @keyframes block{
-
     0%{left:770px}
     100%{left:-40px}
 }

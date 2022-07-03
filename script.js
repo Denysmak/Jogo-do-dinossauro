@@ -3,14 +3,25 @@ let block = document.getElementById("block");
 let i = 1;
 let stopFunction = false;
 let game = document.getElementById("game");
-let youLose = new Audio(""); 
+let characterJump = new Audio("./sound/jump.wav")
+let youLose = new Audio("./sound/lose.wav"); 
+let lose = document.querySelector(".lose")
+let tentarDeNovo = document.getElementById("tentarDeNovo");
+
+
+
+    tentarDeNovo.addEventListener("click",() => {
+
+        window.location.reload()
+
+    })
 
 
 
     function walking(){
        
         setInterval(() => {
-
+           
             character.style.backgroundImage = `url(./png/run${i}.png)`
             if (i < 8) {
 
@@ -26,7 +37,7 @@ let youLose = new Audio("");
 function changeBackground() {
 let x = 1;
     setInterval(() => {
-        console.log(x)
+        
         game.style.backgroundImage = `url(./backgrounds/back${x}.png)`
         if (x < 6) {
 
@@ -46,17 +57,21 @@ changeBackground()
 
 let rocks = ["a", "b", "c", "d", "e", "f"];
 let valorRocks;
-function rock(){
-    valorRocks = rocks[Math.floor(Math.random() * 6)]
+
+    function rock() {
+        valorRocks = rocks[Math.floor(Math.random() * 6)]
 
 
-}
+    }
 
     setInterval(() => {
 
-    rock()
+        rock()
+        console.log(valorRocks)
 
     }, 1000);
+
+
 
 
 
@@ -70,14 +85,16 @@ function countingBack() {
         if (i > 0) {
             i--
         }
-        else if (i = 1) { i = 15}
-    setInterval(() => {
-
+        else if (i = 1) { i = 15 }
+   
+        block.style.backgroundImage = `url(./small/${valorRocks + i}.png)`
+    }, 100)
+    
+       
+        
         block.style.backgroundImage = `url(./small/${valorRocks + i}.png)`
 
-    },1200)
-       
-    }, 100)
+  
 
 
 
@@ -112,9 +129,13 @@ function jump() {
 
 
     }, 500)
-
+    characterJump.play()
 
 }
+
+    setTimeout(() => {
+        block.classList.add("blockAnimate")    
+    }, 1000);
 
 
     let checkDead = setInterval(() => {
@@ -123,13 +144,14 @@ function jump() {
 
         var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
-        // if(blockLeft<20 && blockLeft > 0 && characterTop>=130){
-        //     // block.style.animation = "none";
-        //     // block.style.display = "none"
-        //     alert("You lose");
+        if(blockLeft<20 && blockLeft > 0 && characterTop>=290){
+            block.style.animation = "none";
+            block.style.display = "none"
+            lose.style.display = "flex"
+            youLose.play();
 
 
-        // }
+        }
 
     },10)
 //   if(character.style.top === "150px"){
