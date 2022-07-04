@@ -9,6 +9,28 @@ let lose = document.querySelector(".lose")
 let tentarDeNovo = document.getElementById("tentarDeNovo");
 let sound = document.querySelector(".sound");
 let soundOff = document.querySelector(".soundOff")
+let fullScreen = document.querySelector(".fullScreen");
+let minimizeScreen = document.querySelector(".minimize");
+
+// var body = document.body;
+//     function requestFullScreen(){
+//         body.requestFullscreen()
+//     }
+//     function minimize(){
+//         if(document.fullscreenElement){
+//         document.exitFullscreen().then(()=>{console.log("minimize")}).catch((err)=> {console.log(err)})
+    
+//     }
+//     }
+  
+var elem = document.documentElement;
+function big() {
+    elem.requestFullscreen();
+}
+
+function exit() {
+    document.exitFullscreen();
+}
 
 
 
@@ -76,7 +98,7 @@ changeBackground()
 
 
 let rocks = ["a", "b", "c", "d", "e", "f"];
-let valorRocks;
+let valorRocks = "url(./small/a1.png)";
 
     function rock() {
         valorRocks = rocks[Math.floor(Math.random() * 6)]

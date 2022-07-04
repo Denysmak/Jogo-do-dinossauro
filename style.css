@@ -75,6 +75,16 @@ top: 5px;
 .fullScreen:hover{
     width: 20px;
 }
+.minimize{
+    position: absolute;
+    left: 775px;
+    top: 5px;
+    display: none;
+}
+
+.minimize:hover{
+    width: 20px;
+}
 .sound{
     position: absolute;
     left: 750px;
@@ -106,7 +116,7 @@ top: 5px;
     background-size: cover;
     position: relative;
     top: 260px;
-    left: 750px;
+    left: 780px;
     
     
 }
