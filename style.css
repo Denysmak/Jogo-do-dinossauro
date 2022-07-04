@@ -79,11 +79,19 @@ top: 5px;
     position: absolute;
     left: 750px;
     top: 5px;
+    display: flex;
+}
+.soundOff{
+    position: absolute;
+    left: 750px;
+    top: 5px;
+    display: none;
 }
 .sound:hover{
-
     width: 20px;
-
+}
+.soundOff:hover {
+    width: 20px;
 }
 .animate{
     animation: jump 500ms;

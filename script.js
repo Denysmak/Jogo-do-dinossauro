@@ -7,6 +7,26 @@ let characterJump = new Audio("./sound/jump.wav")
 let youLose = new Audio("./sound/lose.wav"); 
 let lose = document.querySelector(".lose")
 let tentarDeNovo = document.getElementById("tentarDeNovo");
+let sound = document.querySelector(".sound");
+let soundOff = document.querySelector(".soundOff")
+
+
+
+    sound.addEventListener("click", () => {
+        sound.style.display = "none";
+        soundOff.style.display = "flex"
+        characterJump.muted = true
+        youLose.muted = true
+    })
+
+    soundOff.addEventListener("click", () => {
+
+        sound.style.display = "flex";
+        soundOff.style.display = "none"
+        characterJump.muted = false
+        youLose.muted = false
+
+    })
 
 
 
@@ -16,7 +36,7 @@ let tentarDeNovo = document.getElementById("tentarDeNovo");
 
     })
 
-
+  
 
     function walking(){
        
@@ -92,7 +112,7 @@ function countingBack() {
     
        
         
-        block.style.backgroundImage = `url(./small/${valorRocks + i}.png)`
+    
 
   
 
