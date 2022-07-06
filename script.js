@@ -11,6 +11,8 @@ let sound = document.querySelector(".sound");
 let soundOff = document.querySelector(".soundOff")
 let fullScreen = document.querySelector(".fullScreen");
 let minimizeScreen = document.querySelector(".minimize");
+let h1 = document.getElementsByTagName("h1")[0]
+
 
 // var body = document.body;
 //     function requestFullScreen(){
@@ -22,16 +24,143 @@ let minimizeScreen = document.querySelector(".minimize");
     
 //     }
 //     }
+
+tentarDeNovo.addEventListener("mouseover", () => {
+
+    if(document.fullscreenElement == null){
+        tentarDeNovo.style.padding = "19px 29px"
+        tentarDeNovo.style.fontSize = "1rem"
+    }
+    else{
+        tentarDeNovo.style.padding = "50px 75px"
+        tentarDeNovo.style.fontSize = "2.5rem"
+    }
+
+})
+
+tentarDeNovo.addEventListener("mouseout", () => {
+
+    if (document.fullscreenElement == null) {
+        tentarDeNovo.style.padding = "15px 25px"
+        tentarDeNovo.style.fontSize = "0.8rem"
+    }  
+    else {
+        tentarDeNovo.style.padding = "40px 65px"
+        tentarDeNovo.style.fontSize = "2rem"
+    }
+
+
+})
+
+minimizeScreen.addEventListener("mouseover", () => {
+    minimizeScreen.style.width = "35px"
+})
+minimizeScreen.addEventListener("mouseout", () => {
+    minimizeScreen.style.width = "30px"
+})
+
+
+sound.addEventListener("mouseover", () => {
+    if(document.fullscreenElement == null){
+        sound.style.width = "20px"
+    }
+    else{
+        sound.style.width = "30px" 
+    }
+})
+sound.addEventListener("mouseout", () => {
+    if (document.fullscreenElement == null) {
+        sound.style.width = "15px"
+    }
+    else {
+        sound.style.width = "25px"
+    }
+})
+soundOff.addEventListener("mouseover", () => {
+    if (document.fullscreenElement == null) {
+        sound.style.width = "20px"
+    }
+    else {
+        sound.style.width = "30px"
+    }
+})
+soundOff.addEventListener("mouseout", () => {
+    if (document.fullscreenElement == null) {
+        sound.style.width = "15px"
+    }
+    else {
+        sound.style.width = "25px"
+    }
+})
+
+
   
 var elem = document.documentElement;
 function big() {
     elem.requestFullscreen();
+    fullScreen.style.display = "none"
+    minimizeScreen.style.display = "flex";
+    game.style.height = "100%"
+    game.style.width = "100%"
+    character.style.height = "250px"
+    character.style.width = "380px"
+    character.style.left = "10px"
+    character.style.top = "77%"
+    block.style.width = "150px"
+    block.style.height = "150px"
+    block.style.top = "64%"
+    block.style.animation = "block 700ms infinite linear"
+    h1.style.fontSize = "8rem"
+    tentarDeNovo.style.padding = "40px 65px"
+    tentarDeNovo.style.fontSize = "2rem"
+    minimizeScreen.style.width = "30px"
+    minimizeScreen.style.left = "98%"
+    sound.style.left = "96%"
+    soundOff.style.left = "96%"
+    sound.style.width = "25px"
+    soundOff.style.width = "25px"
 }
+console.log(document.fullscreenElement)
+
+
 
 function exit() {
     document.exitFullscreen();
+    fullScreen.style.display = "flex"
+    minimizeScreen.style.display = "none"
+    game.style.height = "400px"
+    game.style.width = "800px"
+    character.style.height = "90px"
+    character.style.width = "120px"
+    character.style.left = "0px"
+    character.style.top = "320px"
+    block.style.width = "70px"
+    block.style.height = "60px"
+    block.style.top = "65%"
+    block.style.animation = "block 1 s infinite linear"
+    h1.style.fontSize = "3rem"
+    tentarDeNovo.style.padding = "15px 25px"
+    tentarDeNovo.style.fontSize = "1rem"
+    sound.style.left = "750px"
+    soundOff.style.left = "750px"
+    sound.style.width = "15px"
+    soundOff.style.width = "15px"
 }
 
+let checkDead = setInterval(() => {
+
+    var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+
+    var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+    if (document.fullscreenElement == null) {
+        if (blockLeft < 20 && blockLeft > 0 && characterTop >= 290) {
+            block.style.animation = "none";
+            block.style.display = "none"
+            lose.style.display = "flex"
+            youLose.play();
+        }
+    }
+}, 10)
 
 
     sound.addEventListener("click", () => {
@@ -174,28 +303,13 @@ function jump() {
     characterJump.play()
 
 }
-
+  
     setTimeout(() => {
         block.classList.add("blockAnimate")    
     }, 1000);
 
+   
 
-    let checkDead = setInterval(() => {
-
-        var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-
-        var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-
-        if(blockLeft<20 && blockLeft > 0 && characterTop>=290){
-            block.style.animation = "none";
-            block.style.display = "none"
-            lose.style.display = "flex"
-            youLose.play();
-
-
-        }
-
-    },10)
 //   if(character.style.top === "150px"){
 
 //     walking()
