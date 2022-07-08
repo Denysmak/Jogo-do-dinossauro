@@ -23,6 +23,16 @@ overflow: hidden;
     overflow: hidden;
    
 }
+.play{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: red;
+    padding: 3% 7%;
+    font-size: 2rem;
+    color: white;
+}
 .lose{
 
 position: absolute;
@@ -59,7 +69,7 @@ margin-top: 10%;
 } */
 
 #character{
-
+    display: none;
     width: 120px;
     height: 90px;
     /* background-color: red; */
@@ -115,9 +125,7 @@ top: 5px;
     position: relative;
     top: 65%;
     left: 780px;
-    
-    
-    
+    display: none;
 }
 .blockAnimate{
     animation: block 1s infinite linear;
@@ -126,6 +134,10 @@ top: 5px;
 
 @keyframes block{
     0%{left:770px}
+    100%{left:-40px}
+}
+@keyframes blockFull{
+    0%{left:100%};
     100%{left:-40px}
 }
 @keyframes jump{

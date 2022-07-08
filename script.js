@@ -11,19 +11,10 @@ let sound = document.querySelector(".sound");
 let soundOff = document.querySelector(".soundOff")
 let fullScreen = document.querySelector(".fullScreen");
 let minimizeScreen = document.querySelector(".minimize");
-let h1 = document.getElementsByTagName("h1")[0]
+let h1 = document.getElementsByTagName("h1")[0];
+let play = document.querySelector(".play");
 
 
-// var body = document.body;
-//     function requestFullScreen(){
-//         body.requestFullscreen()
-//     }
-//     function minimize(){
-//         if(document.fullscreenElement){
-//         document.exitFullscreen().then(()=>{console.log("minimize")}).catch((err)=> {console.log(err)})
-    
-//     }
-//     }
 
 tentarDeNovo.addEventListener("mouseover", () => {
 
@@ -49,6 +40,39 @@ tentarDeNovo.addEventListener("mouseout", () => {
         tentarDeNovo.style.fontSize = "2rem"
     }
 
+
+})
+
+play.addEventListener("mouseover", () => {
+
+    if (document.fullscreenElement == null) {
+        play.style.padding = "4% 8%"
+        play.style.fontSize = "2.2rem"
+    }
+    else {
+        play.style.padding = "4% 8%"
+        play.style.fontSize = "2.6rem"
+    }
+
+})
+play.addEventListener("mouseout", () => {
+
+    if (document.fullscreenElement == null) {
+        play.style.padding = "3% 7%"
+        play.style.fontSize = "2rem"
+    }
+    else {
+        play.style.padding = "3% 7%"
+        play.style.fontSize = "2.2rem"
+    }
+
+
+})
+play.addEventListener("click", () => {
+
+    character.style.display = "flex"
+    block.style.display = "flex"
+    play.style.display = "none"
 
 })
 
@@ -119,6 +143,7 @@ function big() {
     soundOff.style.left = "96%"
     sound.style.width = "25px"
     soundOff.style.width = "25px"
+    play.style.fontSize = "2.5rem"
 }
 console.log(document.fullscreenElement)
 
@@ -145,22 +170,31 @@ function exit() {
     soundOff.style.left = "750px"
     sound.style.width = "15px"
     soundOff.style.width = "15px"
+    play.style.fontSize = "2rem"
 }
 
-let checkDead = setInterval(() => {
+// let checkDead = setInterval(() => {
 
-    var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+//     var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
 
-    var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-    if (document.fullscreenElement == null) {
-        if (blockLeft < 20 && blockLeft > 0 && characterTop >= 290) {
-            block.style.animation = "none";
-            block.style.display = "none"
-            lose.style.display = "flex"
-            youLose.play();
-        }
-    }
-}, 10)
+//     var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+//     if (document.fullscreenElement == null) {
+//         if (blockLeft < 20 && blockLeft > 0 && characterTop >= 290) {
+//             block.style.animation = "none";
+//             block.style.display = "none"
+//             lose.style.display = "flex"
+//             youLose.play();
+//         }  
+//     }
+//     else{
+//         if(blockLeft < 40 && blockLeft > 0 && characterTop >= "75%"){
+//             block.style.animation = "none";
+//             block.style.display = "none"
+//             lose.style.display = "flex"
+//             youLose.play();
+//         }
+//     }
+// }, 10)
 
 
     sound.addEventListener("click", () => {
@@ -306,7 +340,7 @@ function jump() {
   
     setTimeout(() => {
         block.classList.add("blockAnimate")    
-    }, 1000);
+    }, 2500);
 
    
 
