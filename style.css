@@ -130,16 +130,22 @@ top: 5px;
 .blockAnimate{
     animation: block 1s infinite linear;
 }
-
+.blockAnimateBig{
+    animation: block2 1s infinite linear;
+}
 
 @keyframes block{
     0%{left:770px}
     100%{left:-40px}
 }
-@keyframes blockFull{
+@keyframes block2 {
+    0% {left: 97%}
+    100% {left: -40px}
+}
+/* @keyframes blockFull{
     0%{left:100%};
     100%{left:-40px}
-}
+} */
 @keyframes jump{
 
     0%{top: 80%}

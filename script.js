@@ -9,10 +9,10 @@ let lose = document.querySelector(".lose")
 let tentarDeNovo = document.getElementById("tentarDeNovo");
 let sound = document.querySelector(".sound");
 let soundOff = document.querySelector(".soundOff")
-let fullScreen = document.querySelector(".fullScreen");
-let minimizeScreen = document.querySelector(".minimize");
 let h1 = document.getElementsByTagName("h1")[0];
 let play = document.querySelector(".play");
+let fullScreen = document.querySelector(".fullScreen")
+let minimizeScreen = document.querySelector(".minimize")
 
 
 
@@ -73,6 +73,10 @@ play.addEventListener("click", () => {
     character.style.display = "flex"
     block.style.display = "flex"
     play.style.display = "none"
+    setInterval(() => {
+        rock()
+    }, 1200);
+
 
 })
 
@@ -133,7 +137,8 @@ function big() {
     block.style.width = "150px"
     block.style.height = "150px"
     block.style.top = "64%"
-    block.style.animation = "block 700ms infinite linear"
+    // block.style.left = "10px"
+    block.style.animation = "block2 700ms infinite linear"
     h1.style.fontSize = "8rem"
     tentarDeNovo.style.padding = "40px 65px"
     tentarDeNovo.style.fontSize = "2rem"
@@ -144,8 +149,14 @@ function big() {
     sound.style.width = "25px"
     soundOff.style.width = "25px"
     play.style.fontSize = "2.5rem"
+    // block.classList.remove("blockAnimate")
+    // setTimeout(() => {
+        
+    //     block.classList.add("blockAnimateBig")
+    // }, 2500);
+
 }
-console.log(document.fullscreenElement)
+
 
 
 
@@ -171,13 +182,17 @@ function exit() {
     sound.style.width = "15px"
     soundOff.style.width = "15px"
     play.style.fontSize = "2rem"
+    setTimeout(() => {
+        block.classList.add("blockAnimate")
+    }, 2500);
+
 }
 
 // let checkDead = setInterval(() => {
 
 //     var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
 
-//     var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+    var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 //     if (document.fullscreenElement == null) {
 //         if (blockLeft < 20 && blockLeft > 0 && characterTop >= 290) {
 //             block.style.animation = "none";
@@ -269,12 +284,12 @@ let valorRocks = "url(./small/a1.png)";
 
     }
 
-    setInterval(() => {
+    // setInterval(() => {
 
-        rock()
-        console.log(valorRocks)
+    //     rock()
+    //     console.log(valorRocks)
 
-    }, 1000);
+    // }, 900);
 
 
 
@@ -337,10 +352,13 @@ function jump() {
     characterJump.play()
 
 }
-  
+ 
     setTimeout(() => {
         block.classList.add("blockAnimate")    
     }, 2500);
+  
+ 
+ 
 
    
 
