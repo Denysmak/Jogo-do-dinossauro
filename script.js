@@ -188,28 +188,28 @@ function exit() {
 
 }
 
-// let checkDead = setInterval(() => {
+let checkDead = setInterval(() => {
 
-//     var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+    var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
 
     var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-//     if (document.fullscreenElement == null) {
-//         if (blockLeft < 20 && blockLeft > 0 && characterTop >= 290) {
-//             block.style.animation = "none";
-//             block.style.display = "none"
-//             lose.style.display = "flex"
-//             youLose.play();
-//         }  
-//     }
-//     else{
-//         if(blockLeft < 40 && blockLeft > 0 && characterTop >= "75%"){
-//             block.style.animation = "none";
-//             block.style.display = "none"
-//             lose.style.display = "flex"
-//             youLose.play();
-//         }
-//     }
-// }, 10)
+    if (document.fullscreenElement == null) {
+        if (blockLeft < 20 && blockLeft > 0 && characterTop >= 290) {
+            block.style.animation = "none";
+            block.style.display = "none"
+            lose.style.display = "flex"
+            youLose.play();
+        }  
+    }
+    else{
+        if(blockLeft < 150 && blockLeft > 5 && characterTop >= 700){
+            block.style.animation = "none";
+            block.style.display = "none"
+            lose.style.display = "flex"
+            youLose.play();
+        }
+    }
+}, 1)
 
 
     sound.addEventListener("click", () => {
@@ -354,7 +354,7 @@ function jump() {
 }
  
     setTimeout(() => {
-        block.classList.add("blockAnimate")    
+        block.classList.add("blockAnimateBig")    
     }, 2500);
   
  

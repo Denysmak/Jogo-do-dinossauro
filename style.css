@@ -127,17 +127,17 @@ top: 5px;
     left: 780px;
     display: none;
 }
-.blockAnimate{
+/* .blockAnimate{
     animation: block 1s infinite linear;
-}
+} */
 .blockAnimateBig{
     animation: block2 1s infinite linear;
 }
-
+/* 
 @keyframes block{
     0%{left:770px}
     100%{left:-40px}
-}
+} */
 @keyframes block2 {
     0% {left: 97%}
     100% {left: -40px}
