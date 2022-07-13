@@ -18,7 +18,7 @@ overflow: hidden;
     width: 800px;
     height: 400px;
     border: 1px solid black;
-    background-image: url(./backgrounds/back1.png);
+    background-image: url(./backgrounds/mainBackground.png);
     background-size: cover;
     overflow: hidden;
    

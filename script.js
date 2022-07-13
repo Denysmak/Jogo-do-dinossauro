@@ -71,6 +71,7 @@ play.addEventListener("mouseout", () => {
 play.addEventListener("click", () => {
 
     character.style.display = "flex"
+    changeBackground()
     block.style.display = "flex"
     play.style.display = "none"
     setInterval(() => {
@@ -182,9 +183,9 @@ function exit() {
     sound.style.width = "15px"
     soundOff.style.width = "15px"
     play.style.fontSize = "2rem"
-    setTimeout(() => {
-        block.classList.add("blockAnimate")
-    }, 2500);
+    // setTimeout(() => {
+    //     block.classList.add("blockAnimate")
+    // }, 2500);
 
 }
 
@@ -256,6 +257,7 @@ let checkDead = setInterval(() => {
 
 function changeBackground() {
 let x = 1;
+    game.style.backgroundImage = "url(./backgrounds/back1.png)"
     setInterval(() => {
         
         game.style.backgroundImage = `url(./backgrounds/back${x}.png)`
@@ -267,10 +269,10 @@ let x = 1;
         else if (x = 6) { x = 1 }
 
 
-    }, 6000)
+    }, 7000)
 }
 
-changeBackground()
+
 
 
 
