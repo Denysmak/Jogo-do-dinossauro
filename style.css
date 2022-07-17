@@ -11,6 +11,8 @@ height: 100vh;
 position: relative;
 font-family: 'Anton', sans-serif;
 overflow: hidden;
+background-color: black
+;
 }
 
 #game{
