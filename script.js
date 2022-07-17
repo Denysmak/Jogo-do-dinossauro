@@ -13,7 +13,7 @@ let h1 = document.getElementsByTagName("h1")[0];
 let play = document.querySelector(".play");
 let fullScreen = document.querySelector(".fullScreen")
 let minimizeScreen = document.querySelector(".minimize")
-
+let onOff = false
 
 
 tentarDeNovo.addEventListener("mouseover", () => {
@@ -39,9 +39,22 @@ tentarDeNovo.addEventListener("mouseout", () => {
         tentarDeNovo.style.padding = "40px 65px"
         tentarDeNovo.style.fontSize = "2rem"
     }
+})
+tentarDeNovo.addEventListener("click", () => {
+
+    // window.location.reload()
+   
+    onOff = true
+    character.style.display = "none"
+    block.style.display = "none"
+    lose.style.display = "none"
+    game.style.backgroundImage = "url(./backgrounds/mainBackground.png)"
+    play.style.display = "flex"
 
 
 })
+
+
 
 play.addEventListener("mouseover", () => {
 
@@ -68,16 +81,30 @@ play.addEventListener("mouseout", () => {
 
 
 })
+
+// if(block.style.left === "-40px"){
+//     rock()
+// }
+setInterval(() => {
+    rock()
+}, 1250);
+
+
 play.addEventListener("click", () => {
-
+    game.style.backgroundImage = "url(./backgrounds/back1.png)"
     character.style.display = "flex"
-    changeBackground()
+    if(onOff == false){
+    changeBackground()}
     block.style.display = "flex"
+   
+    setTimeout(() => {
+        if(fullScreen == null){
+        block.style.animation = "block2 1s  infinite linear"}
+        else { block.style.animation = "block2 700ms  infinite linear" }
+    }, 2500);
     play.style.display = "none"
-    setInterval(() => {
-        rock()
-    }, 1200);
-
+    countingBack()
+   
 
 })
 
@@ -138,6 +165,7 @@ function big() {
     block.style.width = "150px"
     block.style.height = "150px"
     block.style.top = "64%"
+    block.style.left = "110%"
     // block.style.left = "10px"
     block.style.animation = "block2 700ms infinite linear"
     h1.style.fontSize = "8rem"
@@ -231,13 +259,7 @@ let checkDead = setInterval(() => {
 
 
 
-    tentarDeNovo.addEventListener("click",() => {
 
-        window.location.reload()
-
-    })
-
-  
 
     function walking(){
        
@@ -267,7 +289,7 @@ let x = 1;
 
         }
         else if (x = 6) { x = 1 }
-
+        
 
     }, 7000)
 }
@@ -280,11 +302,11 @@ let x = 1;
 let rocks = ["a", "b", "c", "d", "e", "f"];
 let valorRocks = "url(./small/a1.png)";
 
-    function rock() {
-        valorRocks = rocks[Math.floor(Math.random() * 6)]
+    // function rock() {
+    //     // valorRocks = rocks[Math.floor(Math.random() * 6)]
 
 
-    }
+    // }
 
     // setInterval(() => {
 
@@ -309,7 +331,7 @@ function countingBack() {
         }
         else if (i = 1) { i = 15 }
    
-        block.style.backgroundImage = `url(./small/${valorRocks + i}.png)`
+        block.style.backgroundImage = `url(./small/a${i}.png)`
     }, 100)
     
        
@@ -322,7 +344,7 @@ function countingBack() {
 
 }
 
-countingBack()
+// countingBack()
 
    
 
@@ -354,10 +376,7 @@ function jump() {
     characterJump.play()
 
 }
- 
-    setTimeout(() => {
-        block.classList.add("blockAnimateBig")    
-    }, 2500);
+
   
  
  
